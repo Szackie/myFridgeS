@@ -1,13 +1,10 @@
 package fridge.szackie.product;
 
-import com.fasterxml.jackson.annotation.JsonGetter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -52,7 +49,7 @@ public class ProductServlet {
         Integer fridgeId=(Integer) req.get("fridge_id");
         for (Product product : productRepository.findAll())
             //FIXME
-            if (product.isDone()&&product.getFridge_id()==fridgeId) {
+            if (product.isDone()&&product.getFridge_id().equals(fridgeId)) {
                 productList.add(product);
                 productRepository.deleteById(product.getId());
 

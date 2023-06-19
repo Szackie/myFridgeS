@@ -22,10 +22,10 @@ public class Product {
     public Product() {
     }
 
-    public Product(Integer id, String text, boolean done, Integer fridge_id) {
+    public Product(Integer id, String text, boolean checked, Integer fridge_id) {
         this.id = id;
         this.text = text;
-        this.done = done;
+        this.done = checked;
         this.fridge_id = fridge_id;
     }
 
