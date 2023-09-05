@@ -41,7 +41,6 @@ public class ProductServlet {
         return ResponseEntity.ok(productRepository.findAll());
     }
 
-    //FIXME
 
     @DeleteMapping
     ResponseEntity<List<Product>> deleteProducts(@RequestBody Map<String,Object> req) {

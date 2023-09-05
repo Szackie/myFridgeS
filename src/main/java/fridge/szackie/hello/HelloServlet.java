@@ -33,7 +33,6 @@ class HelloServlet {
 
     @GetMapping(value="/api", params = {"lang","name"})
      String welcome(@RequestParam("lang") Integer langId, @RequestParam String name) {
-        logger.info("Request sended!!!! ");
 
         return service.prepareGreeting(name,langId);
     }

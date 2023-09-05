@@ -15,6 +15,7 @@ public class Fridge {
     @GenericGenerator(name = "inc", strategy = "increment")
     private int fridge_id;
     private String name;
+
     @OneToMany
     @JoinColumn(name = "fridge_id")
     @Column(name="productlist")
@@ -24,10 +25,11 @@ public class Fridge {
     public Fridge() {
     }
 
-    public Fridge(int fridge_id, String name, List<Product> productList) {
+    public Fridge(int fridge_id, String name, List<Product> productList,String pass) {
         this.fridge_id = fridge_id;
         this.name = name;
         this.productList = productList;
+
     }
 
     public String getName() {
