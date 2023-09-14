@@ -82,7 +82,7 @@ private final UserDao userDao;
         return new UserDetailsService() {
             @Override
             public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-                return userDao.findUserByEmail(email);
+                return userDao.findByEmail(email);
             }
         };
     }
