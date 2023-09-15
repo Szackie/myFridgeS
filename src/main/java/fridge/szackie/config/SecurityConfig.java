@@ -44,7 +44,7 @@ private final UserDao userDao;
                 .csrf().disable()
                 .authorizeRequests()
 
-                .antMatchers("/**/auth/**","/","/api/langs**")//FIXME TEST (usuń api)!!!!!!!!!!!!!!!!!!!!!!!!
+                .antMatchers("/**/auth/**","/api/langs**")//FIXME TEST (usuń api)!!!!!!!!!!!!!!!!!!!!!!!!
 
                 .permitAll()
                 .anyRequest()
