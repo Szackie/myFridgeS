@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+    <link rel="shortcut icon" href="#" />
     <meta charset="UTF-8">
     <title>myFridge</title>
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
@@ -36,7 +37,6 @@ const API_URL = `http://localhost:8080/api`;
     const FRIDGE_API_URL = `${API_URL}/fridge`;
 
     let fridgeId;
-    let toki;
     const fridgeText = document.getElementById('fridgeText');
     const productText = document.getElementById('productText');
 
@@ -56,7 +56,7 @@ function getCookie(name) {
 function fetchWithAuth(url, options = {}) {
 
   let savedToken = getCookie('token');
-  console.log('ze zmiennej toki: '+ toki);
+
 console.log('token przed auth: ' + savedToken);
 
     if (!savedToken) {
@@ -65,7 +65,7 @@ console.log('token przed auth: ' + savedToken);
     }
 
     savedToken = getCookie('token');
-    console.log('ze zmiennej toki po auth: '+ toki);
+
 console.log('token po auth: ' + savedToken);
     options.headers = options.headers || {};
     options.headers['Authorization'] = `Bearer ${savedToken}`;
@@ -184,7 +184,7 @@ console.log('token po auth: ' + savedToken);
             'de': '🇩🇪',
             'suo': '🇫🇮'
         };
-        fetchWithAuth(`${API_URL}/langs`)
+        fetch(`${API_URL}/langs`)
             .then(processOkResponse)
             .then(langArr => {
                 document.getElementById('langs').innerHTML = langArr.map(lang => `
@@ -196,7 +196,7 @@ console.log('token po auth: ' + savedToken);
                 initWelcomeFormClick();
             });
     }
-    console.log('logggggggggggggg');
+
     function initWelcomeFormClick() {
 
         const welcomeForm = document.getElementById('welcomeForm');
