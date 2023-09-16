@@ -32,9 +32,9 @@ public class AuthenticationController {
     public ResponseEntity<String> authenticate(@RequestBody AuthenticationRequest request, HttpServletResponse response) {
 
 //        fixme poniższa metoda działa tylko z zahardkodowaną listą userów (coś z UserDetails musi być nie tak)
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(request.getEmail(),request.getPassword())
-        );
+//        authenticationManager.authenticate(
+//                new UsernamePasswordAuthenticationToken(request.getEmail(),request.getPassword())
+//        );
 
         final User user= userDao.findByEmail(request.getEmail());
         if(user!=null){
